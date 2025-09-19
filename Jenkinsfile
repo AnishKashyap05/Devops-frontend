@@ -11,14 +11,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/AnishKashyap05/Devops-frontend.git'
             }
         }
-        stage('Build React') {
-            steps {
-                dir('frontend') {
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t $IMAGE_NAME:latest ."
